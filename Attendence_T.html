@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Attendance Tracker</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="Attendence_T.css">
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <h1 id="app-title">Attendance Tracker</h1>
+    <div class="header-info">
+      <div class="info-item">
+        <span>📚</span>
+        <span id="class-name">Math 101</span>
+        <button class="edit-icon" onclick="openTeacherModal()">✏️</button>
+      </div>
+      <div class="info-item"><span>👨‍🏫</span><span id="teacher-name">Mr. Johnson</span></div>
+      <div class="info-item"><span>📧</span><span id="teacher-email">johnson@example.com</span></div>
+      <div class="info-item"><span>📱</span><span id="teacher-phone">+1234567890</span></div>
+      <div class="info-item"><span>📅</span><span id="current-date"></span></div>
+    </div>
+    <div class="date-picker">
+      <label for="attendance-date" class="text-gray-700 font-semibold">Select Date:</label>
+      <input type="date" id="attendance-date" class="form-input"/>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="attendance-section">
+      <h2 class="section-title">Student Attendance</h2>
+      <form id="add-student-form" class="add-student-form">
+        <input type="text" id="student-name-input" class="form-input" placeholder="Enter student name" required />
+        <button type="submit" class="btn btn-primary">➕ Add Student</button>
+      </form>
+      <div id="student-list" class="student-list">
+        <div class="empty-state"><h3>No students added yet</h3><p>Add students using the form above</p></div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <h3 class="section-title">Summary</h3>
+      <div class="stats-grid">
+        <div class="stat-card present"><div id="present-count">0</div><div>Present</div></div>
+        <div class="stat-card absent"><div id="absent-count">0</div><div>Absent</div></div>
+        <div class="stat-card late"><div id="late-count">0</div><div>Late</div></div>
+        <div class="stat-card"><div id="total-count">0</div><div>Total</div></div>
+      </div>
+      <button class="btn btn-primary w-full mt-4" onclick="exportAttendance()">📊 Export Report</button>
+      <button class="btn btn-warning w-full mt-2" onclick="clearTodayAttendance()">🔄 Reset</button>
+      <button class="btn btn-primary w-full mt-2" onclick="openDuplicateModal()">📋 Duplicate Attendance</button>
+    </aside>
+  </main>
+</div>
+
+<script src="Attendence_T.js"></script>
+</body>
+</html>
